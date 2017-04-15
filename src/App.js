@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { UISrefActive, UISref, UIView } from 'ui-router-react';
 import './App.css';
 
 class App extends Component {
@@ -7,12 +7,24 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Fun with UI-Router</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="App-menu">
+          <ul>
+            <UISrefActive class="active">
+              <li><UISref to="home"><a>Home</a></UISref></li>
+            </UISrefActive>
+            <UISrefActive class="active">
+              <li><UISref to="about"><a>About</a></UISref></li>
+            </UISrefActive>
+            <UISrefActive class="active">
+              <li><UISref to="albums"><a>Albums</a></UISref></li>
+            </UISrefActive>
+          </ul>
+        </div>
+        <div className="App-content">
+          <UIView />
+        </div>
       </div>
     );
   }
