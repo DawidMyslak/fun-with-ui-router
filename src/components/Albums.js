@@ -4,25 +4,27 @@ import { UISref } from 'ui-router-react';
 export default class Albums extends Component {
   constructor() {
     super();
-    this.state = { page: 1, items: 10 };
+    this.state = { page: 1 };
     this.setPage = this.setPage.bind(this);
     this.handleItemsChange = this.handleItemsChange.bind(this);
   }
 
   componentDidMount() {
     let total = this.props.resolves.albums.length;
-    let pages = Math.ceil(total / this.state.items);
-    this.setState(Object.assign(this.state, { total, pages }));
+    let items = localStorage.getItem('items') || 10;
+    let pages = Math.ceil(total / items);
+    this.setState({ total, items, pages });
   }
 
   setPage(page) {
-    this.setState(Object.assign(this.state, { page }));
+    this.setState({ page });
   }
 
   handleItemsChange(event) {
     let items = parseInt(event.target.value, 10);
+    localStorage.setItem('items', items);
     let pages = Math.ceil(this.state.total / items);
-    this.setState(Object.assign(this.state, { page: 1, items, pages }));
+    this.setState({ page: 1, items, pages });
   }
 
   render() {
