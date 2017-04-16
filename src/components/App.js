@@ -5,7 +5,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-toggleable navbar-inverse bg-inverse">
+        <nav className="navbar navbar-toggleable navbar-inverse">
           <div className="container">
             <div className="navbar-brand">Fun with UI-Router</div>
             <div>
