@@ -1,3 +1,11 @@
-body {
-  padding-top: 5rem;
+.content {
+  padding-top: 1rem;
+}
+
+.albums td:first-child {
+  width: 60px;
+}
+
+.album th:first-child {
+  width: 120px;
 }

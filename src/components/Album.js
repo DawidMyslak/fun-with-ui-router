@@ -4,16 +4,18 @@ import { UISref } from 'ui-router-react';
 export default class Album extends Component {
   render() {
     let { album } = this.props.resolves;
-    
+
     return (
-      <div>
+      <div className="album">
         <h3>Album</h3>
-
-        <div>Id: {album.id}</div>
-        <div>Title: {album.title}</div>
-        <div>User Id: {album.userId}</div>
-
-        <UISref to="albums"><button>back to albums</button></UISref>
+        <table className="table">
+          <tbody>
+            <tr><th>Id</th><td>{album.id}</td></tr>
+            <tr><th>Title</th><td>{album.title}</td></tr>
+            <tr><th>User Id</th><td>{album.userId}</td></tr>
+          </tbody>
+        </table>
+        <UISref to="albums"><button className="btn btn-primary">Back to Albums</button></UISref>
       </div>
     );
   }

@@ -31,6 +31,14 @@ export default class Albums extends Component {
     let { albums } = this.props.resolves;
     let { page, items, pages } = this.state;
 
+    let pagination = Array(pages)
+      .fill()
+      .map((_, i) => (
+        <li key={i} className={'page-item' + (i + 1 === this.state.page ? ' active' : '')}>
+          <a className="page-link" href="#" onClick={() => this.setPage(i + 1)}>{i + 1}</a>
+        </li>
+      ));
+
     let rows = albums
       .filter(album => album.id > (page - 1) * items && album.id <= page * items)
       .map(album => (
@@ -46,28 +54,24 @@ export default class Albums extends Component {
         </tr>
       ));
 
-    let pagination = Array(pages)
-      .fill()
-      .map((_, i) => (
-        <li key={i} className={'page-item' + (i + 1 === this.state.page ? ' active' : '')}>
-          <a className="page-link" href="#" onClick={() => this.setPage(i + 1)}>{i + 1}</a>
-        </li>
-      ));
-
     return (
-      <div>
+      <div className="albums">
         <h3>Albums</h3>
-        <nav>
-          <ul className="pagination">
-            {pagination}
-          </ul>
-        </nav>
-        <select value={this.state.items} onChange={this.handleItemsChange} className="custom-select">
-          <option value="10">10</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-        </select>
+        <div className="row">
+          <div className="col-8">
+            <ul className="pagination">
+              {pagination}
+            </ul>
+          </div>
+          <div className="col-4 text-right">
+            <select value={this.state.items} onChange={this.handleItemsChange} className="custom-select">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+        </div>
         <table className="table table-striped">
           <thead>
             <tr>
