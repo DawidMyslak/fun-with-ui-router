@@ -14,7 +14,7 @@ class App extends Component {
                   <li className="nav-item"><UISref to="home"><a className="nav-link">Home</a></UISref></li>
                 </UISrefActive>
                 <UISrefActive class="active">
-                  <li className="nav-item"><UISref to="about"><a className="nav-link">About</a></UISref></li>
+                  <li className="nav-item"><UISref to="user"><a className="nav-link">User</a></UISref></li>
                 </UISrefActive>
                 <UISrefActive class="active">
                   <li className="nav-item"><UISref to="albums"><a className="nav-link">Albums</a></UISref></li>

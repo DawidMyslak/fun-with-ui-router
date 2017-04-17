@@ -15,7 +15,7 @@ export default class Album extends Component {
             <tr><th>User Id</th><td>{album.userId}</td></tr>
           </tbody>
         </table>
-        <UISref to="albums"><button className="btn btn-primary">Back to Albums</button></UISref>
+        <UISref to="albums"><button className="btn btn-primary">Back to albums</button></UISref>
       </div>
     );
   }

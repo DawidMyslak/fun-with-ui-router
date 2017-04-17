@@ -1,7 +1,8 @@
 import AlbumsService from './services/albumsService';
+import UsersService from './services/usersService';
 
-import About from './components/About';
 import Home from './components/Home';
+import User from './components/User';
 import Albums from './components/Albums';
 import Album from './components/Album';
 
@@ -11,10 +12,14 @@ export const home = {
   component: Home
 }
 
-export const about = {
-  name: 'about',
-  url: '/about',
-  component: About
+export const user = {
+  name: 'user',
+  url: '/user',
+  component: User,
+  resolve: [{
+    token: 'user',
+    resolveFn: () => UsersService.getUser()
+  }]
 }
 
 export const albums = {

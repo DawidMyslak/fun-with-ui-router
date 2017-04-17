@@ -1,6 +1,6 @@
 import { pushStateLocationPlugin } from 'ui-router-react';
 
-import { home, about, albums, album } from './states';
+import { home, user, albums, album } from './states';
 
 export const plugins = [
   pushStateLocationPlugin
@@ -8,7 +8,7 @@ export const plugins = [
 
 export const states = [
   home,
-  about,
+  user,
   albums,
   album
 ]

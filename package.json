@@ -14,5 +14,5 @@
   "scripts": {
     "start": "react-scripts start"
   },
-  "proxy": "http://jsonplaceholder.typicode.com/"
+  "proxy": "http://jsonplaceholder.typicode.com"
 }

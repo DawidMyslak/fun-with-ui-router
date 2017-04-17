@@ -17,7 +17,7 @@ export default class Home extends Component {
     return (
       <div>
         <h3>{this.state.greeting} world!</h3>
-        <button onClick={this.toggleGreeting}>toggle greeting</button>
+        <button onClick={this.toggleGreeting} className="btn btn-primary">Toggle greeting</button>
       </div>
     );
   }
