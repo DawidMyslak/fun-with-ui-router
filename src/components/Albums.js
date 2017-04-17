@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { UISref } from 'ui-router-react';
 
 export default class Albums extends Component {
   constructor() {
@@ -29,6 +28,11 @@ export default class Albums extends Component {
 
   render() {
     let { albums } = this.props.resolves;
+
+    if (albums.err) {
+      return (<div className="alert alert-danger">{albums.err.message}</div>);
+    }
+
     let { page, items, pages } = this.state;
 
     let pagination = Array(pages)
@@ -47,9 +51,7 @@ export default class Albums extends Component {
             {album.id}
           </td>
           <td>
-            <UISref to="album" params={{ albumId: album.id }}>
-              <a>{album.title}</a>
-            </UISref>
+            {album.title}
           </td>
         </tr>
       ));

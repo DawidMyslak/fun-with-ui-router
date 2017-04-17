@@ -1,7 +1,7 @@
 let cache = null;
 
-const getUser = () => {
-  return cache = cache || fetch('/users/1')
+const getSomething = () => {
+  return cache = cache || fetch('/fail')
     .then(response => {
       if (!response.ok) throw new Error(response.status + ': ' + response.statusText);
       return response.json();
@@ -12,5 +12,5 @@ const getUser = () => {
 }
 
 export default {
-  getUser
+  getSomething
 }

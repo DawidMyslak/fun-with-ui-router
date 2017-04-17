@@ -1,10 +1,11 @@
-import AlbumsService from './services/albumsService';
 import UsersService from './services/usersService';
+import AlbumsService from './services/albumsService';
+import FailService from './services/failService';
 
 import Home from './components/Home';
 import User from './components/User';
 import Albums from './components/Albums';
-import Album from './components/Album';
+import Fail from './components/Fail';
 
 export const home = {
   name: 'home',
@@ -32,13 +33,12 @@ export const albums = {
   }]
 }
 
-export const album = {
-  name: 'album',
-  url: '/album/:albumId',
-  component: Album,
+export const fail = {
+  name: 'fail',
+  url: '/fail',
+  component: Fail,
   resolve: [{
-    token: 'album',
-    deps: ['$transition$'],
-    resolveFn: (trans) => AlbumsService.getAlbum(parseInt(trans.params().albumId, 10))
+    token: 'fail',
+    resolveFn: () => FailService.getSomething()
   }]
 }

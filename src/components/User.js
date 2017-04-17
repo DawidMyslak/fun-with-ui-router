@@ -4,6 +4,10 @@ export default class User extends Component {
   render() {
     let { user } = this.props.resolves;
 
+    if (user.err) {
+      return (<div className="alert alert-danger">{user.err.message}</div>);
+    }
+
     return (
       <div className="user">
         <h3>User</h3>
